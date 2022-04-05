@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-
-Route::get('/1', function (){
-    return 1;
+Route::middleware(['cors'])->group(function () {
+    Route::post('/generate', [ShortLinkController::class, 'store']);
 });
-Route::post('/generate', [ShortLinkController::class, 'store']);
 
